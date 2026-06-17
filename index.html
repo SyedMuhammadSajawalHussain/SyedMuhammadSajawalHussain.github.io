@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Work · Static Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ----- RESET & BASE (unchanged) ----- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f8fafc;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #0b1a2e;
+      line-height: 1.5;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);
+      padding: 2.5rem 2rem;
+      transition: box-shadow 0.2s ease;
+    }
+    h1, h2, h3 { font-weight: 600; letter-spacing: -0.02em; }
+    h1 { font-size: 2.6rem; line-height: 1.2; }
+    h2 { font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 3px solid #eef2f6; padding-bottom: 0.5rem; display: inline-block; }
+    .section-title { display: flex; align-items: center; gap: 0.5rem; }
+    .section-title i { color: #2563eb; font-size: 1.8rem; }
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      gap: 1.5rem;
+    }
+    .hero-text { max-width: 650px; }
+    .hero-text .badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e3a8a;
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 0.3rem 1rem;
+      border-radius: 30px;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.3px;
+    }
+    .hero-text p { font-size: 1.2rem; color: #334155; margin-top: 0.5rem; max-width: 500px; }
+    .hero-avatar {
+      background: linear-gradient(145deg, #eef2ff, #ffffff);
+      padding: 0.75rem 1.5rem;
+      border-radius: 80px;
+      border: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-weight: 500;
+      color: #1e293b;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+    }
+    .hero-avatar i { font-size: 1.8rem; color: #2563eb; }
+    .social-mini {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .social-mini a {
+      background: #f1f5f9;
+      color: #1e293b;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: 0.15s ease;
+      border: 1px solid transparent;
+    }
+    .social-mini a:hover {
+      background: #e2e8f0;
+      border-color: #b9c7da;
+      transform: translateY(-2px);
+    }
+    .social-mini a i { color: #2563eb; }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0 1.5rem;
+    }
+    .project-card {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 1.8rem 1.5rem 1.8rem;
+      border: 1px solid #e9edf2;
+      transition: 0.2s ease-in-out;
+      box-shadow: 0 4px 6px -2px rgba(0,0,0,0.02);
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      border-color: #b4c8e6;
+      box-shadow: 0 16px 24px -8px rgba(0, 40, 100, 0.08);
+      transform: translateY(-4px);
+    }
+    .project-icon {
+      font-size: 2.4rem;
+      color: #2563eb;
+      background: #eef4ff;
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      margin-bottom: 1.2rem;
+    }
+    .project-card h3 { font-size: 1.4rem; margin-bottom: 0.4rem; }
+    .project-card .project-tag {
+      font-size: 0.75rem;
+      background: #eef2f6;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      color: #334155;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      align-self: flex-start;
+    }
+    .project-card p { color: #475569; margin-bottom: 1.2rem; flex: 1; }
+    .project-card .btn-outline {
+      border: 1px solid #cbd5e1;
+      background: transparent;
+      padding: 0.5rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 500;
+      color: #1e293b;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      align-self: flex-start;
+      transition: 0.15s;
+      font-size: 0.9rem;
+    }
+    .project-card .btn-outline i { font-size: 0.8rem; color: #475569; }
+    .project-card .btn-outline:hover { background: #f1f5f9; border-color: #94a3b8; }
+    .skills-section { margin: 3rem 0 1rem; padding-top: 0.5rem; }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 0.9rem;
+      margin-top: 0.8rem;
+    }
+    .skill-tags span {
+      background: #f1f4f9;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #1e293b;
+      border: 1px solid #e2e8f0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .skill-tags span i { color: #2563eb; font-size: 0.9rem; }
+    .quote-block {
+      background: #f8fafc;
+      border-radius: 1.5rem;
+      padding: 1.8rem 2rem;
+      margin: 2.5rem 0 1rem;
+      border-left: 6px solid #2563eb;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .quote-block p { font-size: 1.2rem; font-weight: 400; color: #1e293b; font-style: italic; }
+    .quote-block small { color: #64748b; font-weight: 400; }
+    .footer {
+      margin-top: 3.5rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      color: #475569;
+      font-size: 0.95rem;
+    }
+    .footer a { color: #1e293b; text-decoration: none; border-bottom: 1px dotted transparent; }
+    .footer a:hover { border-bottom-color: #2563eb; }
+    .footer i { color: #2563eb; margin-right: 4px; }
+    @media (max-width: 700px) {
+      .container { padding: 1.5rem 1rem; }
+      h1 { font-size: 2.2rem; }
+      .hero { flex-direction: column; align-items: flex-start; }
+      .hero-avatar { align-self: flex-start; }
+    }
+    @media (max-width: 450px) { .work-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================ -->
+<!-- ================  YOUR DATA CONFIGURATION  ================== -->
+<!-- ============================================================ -->
+<!-- EDIT EVERYTHING BELOW THIS LINE to personalize your site.    -->
+<!-- ============================================================ -->
+
+<script>
+  // =============================================================
+  // 1. PERSONAL INFO — change these to your details
+  // =============================================================
+  const MY_DATA = {
+    name: "Syed Muhammad Sajawal Hussain",                // Your full name
+    title: "Designer & Front-End Builder", // Your tagline
+    badge: "available for collaboration", // Small badge text
+    avatarIcon: "fa-user-circle",       // FontAwesome icon for avatar
+    bio: "Hi, I'm Syed Muhammad Sajawal Hussain — designer & front-end builder. This page shows a selection of projects, skills, and the tools I use daily.",
+    
+    // =============================================================
+    // 2. SOCIAL LINKS — add your profile URLs (keep the icons)
+    // =============================================================
+    social: [
+      { icon: "fa-github", label: "GitHub", url: "https://github.com/yourusername" },
+      { icon: "fa-linkedin", label: "LinkedIn", url: "https://linkedin.com/in/yourusername" },
+      { icon: "fa-x-twitter", label: "Twitter", url: "https://twitter.com/yourusername" },
+      { icon: "fa-envelope", label: "Contact", url: "mailto:you@example.com" }
+    ],
+
+    // =============================================================
+    // 3. PROJECTS — edit or add/remove projects (max 6 shown here)
+    //    Each project needs: icon, title, tag, description, previewLink
+    // =============================================================
+    projects: [
+      {
+        icon: "fa-layer-group",
+        title: "Nova dashboard",
+        tag: "UI / static",
+        description: "Analytics interface with dark mode, data cards, and interactive charts. Built with vanilla HTML/CSS and minimal JS.",
+        previewLink: "#"
+      },
+      {
+        icon: "fa-leaf",
+        title: "Eco landing",
+        tag: "brand · static",
+        description: "One-page site for a sustainable brand. Responsive grid, animated scroll, and a clean typographic system.",
+        previewLink: "#"
+      },
+      {
+        icon: "fa-cube",
+        title: "Portfolio 2025",
+        tag: "personal",
+        description: "Modular portfolio template with project filters, light/dark toggle, and a contact form (static).",
+        previewLink: "#"
+      },
+      {
+        icon: "fa-robot",
+        title: "AI playground",
+        tag: "experiment",
+        description: "Static demo for an AI concept: prompt cards, response simulation, and minimal micro-interactions.",
+        previewLink: "#"
+      },
+      {
+        icon: "fa-pencil-ruler",
+        title: "Design system",
+        tag: "UI kit",
+        description: "Component library with buttons, forms, cards, and typography scales — used across multiple static sites.",
+        previewLink: "#"
+      },
+      {
+        icon: "fa-store-alt",
+        title: "Boutique store",
+        tag: "e‑commerce static",
+        description: "Product catalog with grid, filters (CSS only), and a simple cart overlay. All static, no backend.",
+        previewLink: "#"
+      }
+    ],
+
+    // =============================================================
+    // 4. SKILLS / TECHNOLOGIES — add or remove as needed
+    // =============================================================
+    skills: [
+      { icon: "fa-html5", label: "HTML5" },
+      { icon: "fa-css3-alt", label: "CSS3" },
+      { icon: "fa-js", label: "JavaScript (vanilla)" },
+      { icon: "fa-code-branch", label: "Git / GitHub" },
+      { icon: "fa-palette", label: "Figma" },
+      { icon: "fa-mobile-alt", label: "Responsive design" },
+      { icon: "fa-wind", label: "Tailwind / utility" },
+      { icon: "fa-server", label: "Static hosting" }
+    ],
+
+    // =============================================================
+    // 5. QUOTE / TESTIMONIAL — add a personal or professional quote
+    // =============================================================
+    quote: {
+      text: "“Static sites are fast, secure, and straightforward. This page is built with that philosophy — zero frameworks, just clean code.”",
+      author: "Syed Muhammad Sajawal Hussain · 2026"
+    },
+
+    // =============================================================
+    // 6. FOOTER — copyright and custom text
+    // =============================================================
+    footer: {
+      copyright: "2026 · static portfolio",
+      extra: "built with ❤️ for my work"
+    }
+  };
+
+  // =============================================================
+  // 7. RENDER FUNCTION — this builds the page from your data
+  //    (You don't need to edit anything below unless you want to
+  //     change the HTML structure itself.)
+  // =============================================================
+  document.addEventListener('DOMContentLoaded', function() {
+    const data = MY_DATA;
+
+    // --- Hero section ---
+    document.querySelector('.hero-text .badge').innerHTML = `<i class="fas fa-code" style="margin-right: 6px;"></i> ${data.badge}`;
+    document.querySelector('.hero-text h1').textContent = 'My work · static portfolio';
+    document.querySelector('.hero-text p').innerHTML = `Hi, I’m <strong>${data.name}</strong> — ${data.title}. ${data.bio.replace(/^Hi, I’m [^—]+— /, '')}`;
+    document.querySelector('.hero-avatar i').className = `fas ${data.avatarIcon}`;
+    document.querySelector('.hero-avatar span').textContent = data.name.split(' ')[0] + ' Sajawal';
+
+    // --- Social links ---
+    const socialContainer = document.querySelector('.social-mini');
+    socialContainer.innerHTML = '';
+    data.social.forEach(s => {
+      const a = document.createElement('a');
+      a.href = s.url;
+      a.innerHTML = `<i class="fab ${s.icon}"></i> ${s.label}`;
+      socialContainer.appendChild(a);
+    });
+
+    // --- Projects ---
+    const projectGrid = document.querySelector('.work-grid');
+    projectGrid.innerHTML = '';
+    data.projects.forEach(p => {
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      card.innerHTML = `
+        <div class="project-icon"><i class="fas ${p.icon}"></i></div>
+        <h3>${p.title}</h3>
+        <span class="project-tag">${p.tag}</span>
+        <p>${p.description}</p>
+        <a href="${p.previewLink}" class="btn-outline"><i class="fas fa-eye"></i> preview</a>
+      `;
+      projectGrid.appendChild(card);
+    });
+
+    // --- Skills ---
+    const skillContainer = document.querySelector('.skill-tags');
+    skillContainer.innerHTML = '';
+    data.skills.forEach(s => {
+      const span = document.createElement('span');
+      span.innerHTML = `<i class="fab ${s.icon}"></i> ${s.label}`;
+      skillContainer.appendChild(span);
+    });
+
+    // --- Quote ---
+    document.querySelector('.quote-block p').textContent = data.quote.text;
+    document.querySelector('.quote-block small').innerHTML = `${data.quote.author} · <i class="fas fa-code" style="margin-left: 4px;"></i> 2026`;
+
+    // --- Footer ---
+    const footerDiv = document.querySelector('.footer div:first-child');
+    footerDiv.innerHTML = `
+      <i class="fas fa-copyright"></i> ${data.footer.copyright}
+      <span style="margin:0 0.5rem; color:#cbd5e1;">|</span>
+      <span style="font-weight:300;">${data.footer.extra.replace('❤️', '<i class="fas fa-heart" style="color:#2563eb; margin:0 3px;"></i>')}</span>
+    `;
+  });
+</script>
+
+<!-- ============================================================ -->
+<!-- ================  HTML STRUCTURE (static)  ================== -->
+<!-- ============================================================ -->
+<!-- The script above fills this structure with YOUR data.        -->
+<!-- ============================================================ -->
+
+<div class="container">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-text">
+      <span class="badge">Loading...</span>
+      <h1>My work · static portfolio</h1>
+      <p>Loading your data...</p>
+      <div class="social-mini"></div>
+    </div>
+    <div class="hero-avatar">
+      <i class="fas fa-user-circle"></i> 
+      <span>Loading...</span>
+      <span style="color:#64748b; font-weight:400; font-size:0.8rem;">· static</span>
+    </div>
+  </header>
+
+  <!-- WORK -->
+  <section>
+    <div class="section-title">
+      <i class="fas fa-briefcase"></i>
+      <h2>Selected work</h2>
+    </div>
+    <div class="work-grid"></div>
+    <p style="color:#64748b; font-size:0.9rem; margin-top: 0.2rem;">
+      <i class="fas fa-arrow-right" style="color:#2563eb;"></i> 
+      Hover cards for interaction — each project is fully static &amp; responsive.
+    </p>
+  </section>
+
+  <!-- SKILLS -->
+  <div class="skills-section">
+    <div class="section-title">
+      <i class="fas fa-tools"></i>
+      <h2>Tools &amp; technologies</h2>
+    </div>
+    <div class="skill-tags"></div>
+  </div>
+
+  <!-- QUOTE -->
+  <div class="quote-block">
+    <p>Loading quote...</p>
+    <small>— loading · 2026</small>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>Loading footer...</div>
+    <div>
+      <a href="#"><i class="fas fa-arrow-up"></i> back to top</a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
