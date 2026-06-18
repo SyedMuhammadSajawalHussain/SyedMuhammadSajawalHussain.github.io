@@ -1,444 +1,1107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syed Muhammad Sajawal Hussain</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    /* ----- RESET & BASE (unchanged) ----- */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: #f8fafc;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      color: #0b1a2e;
-      line-height: 1.5;
-      padding: 2rem 1rem;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      background: white;
-      border-radius: 2rem;
-      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);
-      padding: 2.5rem 2rem;
-      transition: box-shadow 0.2s ease;
-    }
-    h1, h2, h3 { font-weight: 600; letter-spacing: -0.02em; }
-    h1 { font-size: 2.6rem; line-height: 1.2; }
-    h2 { font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 3px solid #eef2f6; padding-bottom: 0.5rem; display: inline-block; }
-    .section-title { display: flex; align-items: center; gap: 0.5rem; }
-    .section-title i { color: #2563eb; font-size: 1.8rem; }
-    .hero {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 3rem;
-      gap: 1.5rem;
-    }
-    .hero-text { max-width: 650px; }
-    .hero-text .badge {
-      display: inline-block;
-      background: #dbeafe;
-      color: #1e3a8a;
-      font-weight: 500;
-      font-size: 0.85rem;
-      padding: 0.3rem 1rem;
-      border-radius: 30px;
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.3px;
-    }
-    .hero-text p { font-size: 1.2rem; color: #334155; margin-top: 0.5rem; max-width: 500px; }
-    .hero-avatar {
-      background: linear-gradient(145deg, #eef2ff, #ffffff);
-      padding: 0.75rem 1.5rem;
-      border-radius: 80px;
-      border: 1px solid #e2e8f0;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-weight: 500;
-      color: #1e293b;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.02);
-    }
-    .hero-avatar i { font-size: 1.8rem; color: #2563eb; }
-    .social-mini {
-      margin-top: 1.2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-    .social-mini a {
-      background: #f1f5f9;
-      color: #1e293b;
-      padding: 0.5rem 1rem;
-      border-radius: 40px;
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      transition: 0.15s ease;
-      border: 1px solid transparent;
-    }
-    .social-mini a:hover {
-      background: #e2e8f0;
-      border-color: #b9c7da;
-      transform: translateY(-2px);
-    }
-    .social-mini a i { color: #2563eb; }
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
-      margin: 2.5rem 0 1.5rem;
-    }
-    .project-card {
-      background: #ffffff;
-      border-radius: 1.5rem;
-      padding: 1.8rem 1.5rem 1.8rem;
-      border: 1px solid #e9edf2;
-      transition: 0.2s ease-in-out;
-      box-shadow: 0 4px 6px -2px rgba(0,0,0,0.02);
-      display: flex;
-      flex-direction: column;
-    }
-    .project-card:hover {
-      border-color: #b4c8e6;
-      box-shadow: 0 16px 24px -8px rgba(0, 40, 100, 0.08);
-      transform: translateY(-4px);
-    }
-    .project-icon {
-      font-size: 2.4rem;
-      color: #2563eb;
-      background: #eef4ff;
-      width: 64px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 18px;
-      margin-bottom: 1.2rem;
-    }
-    .project-card h3 { font-size: 1.4rem; margin-bottom: 0.4rem; }
-    .project-card .project-tag {
-      font-size: 0.75rem;
-      background: #eef2f6;
-      padding: 0.2rem 0.8rem;
-      border-radius: 30px;
-      color: #334155;
-      display: inline-block;
-      margin-bottom: 0.8rem;
-      align-self: flex-start;
-    }
-    .project-card p { color: #475569; margin-bottom: 1.2rem; flex: 1; }
-    .project-card .btn-outline {
-      border: 1px solid #cbd5e1;
-      background: transparent;
-      padding: 0.5rem 1.2rem;
-      border-radius: 60px;
-      font-weight: 500;
-      color: #1e293b;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      align-self: flex-start;
-      transition: 0.15s;
-      font-size: 0.9rem;
-    }
-    .project-card .btn-outline i { font-size: 0.8rem; color: #475569; }
-    .project-card .btn-outline:hover { background: #f1f5f9; border-color: #94a3b8; }
-    .skills-section { margin: 3rem 0 1rem; padding-top: 0.5rem; }
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem 0.9rem;
-      margin-top: 0.8rem;
-    }
-    .skill-tags span {
-      background: #f1f4f9;
-      padding: 0.4rem 1.2rem;
-      border-radius: 40px;
-      font-size: 0.9rem;
-      color: #1e293b;
-      border: 1px solid #e2e8f0;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .skill-tags span i { color: #2563eb; font-size: 0.9rem; }
-    .quote-block {
-      background: #f8fafc;
-      border-radius: 1.5rem;
-      padding: 1.8rem 2rem;
-      margin: 2.5rem 0 1rem;
-      border-left: 6px solid #2563eb;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-    .quote-block p { font-size: 1.2rem; font-weight: 400; color: #1e293b; font-style: italic; }
-    .quote-block small { color: #64748b; font-weight: 400; }
-    .footer {
-      margin-top: 3.5rem;
-      padding-top: 1.8rem;
-      border-top: 1px solid #e2e8f0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      color: #475569;
-      font-size: 0.95rem;
-    }
-    .footer a { color: #1e293b; text-decoration: none; border-bottom: 1px dotted transparent; }
-    .footer a:hover { border-bottom-color: #2563eb; }
-    .footer i { color: #2563eb; margin-right: 4px; }
-    @media (max-width: 700px) {
-      .container { padding: 1.5rem 1rem; }
-      h1 { font-size: 2.2rem; }
-      .hero { flex-direction: column; align-items: flex-start; }
-      .hero-avatar { align-self: flex-start; }
-    }
-    @media (max-width: 450px) { .work-grid { grid-template-columns: 1fr; } }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Syed Muhammad Sajawal Hussain</title>
+
+    <!-- Font Awesome (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <!-- Google Fonts: Inter & Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+
+    <style>
+        /* ----- RESET & BASE ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --card-bg: #1e293b;
+            --card-hover: #334155;
+            --border-radius: 20px;
+            --transition: 0.3s ease;
+            --shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--text-light);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ----- SCROLLBAR ----- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--primary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent);
+            border-radius: 10px;
+        }
+
+        /* ----- UTILITY ----- */
+        .section-tag {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--accent-light);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 14px;
+            border-radius: 30px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .section-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #f8fafc 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 600px;
+        }
+
+        .section-header {
+            margin-bottom: 48px;
+        }
+
+        /* ----- NAVIGATION ----- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 14px 0;
+            transition: var(--transition);
+        }
+
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            position: relative;
+            color: var(--text-muted);
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fff;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        /* ----- HERO ----- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero-content h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 500px;
+            margin-bottom: 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px -8px rgba(59,130,246,0.4);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--text-light);
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            border: 1.5px solid rgba(255,255,255,0.15);
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            background: rgba(59,130,246,0.08);
+            transform: translateY(-2px);
+        }
+
+        .hero-social {
+            display: flex;
+            gap: 18px;
+            margin-top: 28px;
+        }
+
+        .hero-social a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .hero-social a:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(59,130,246,0.3);
+            box-shadow: 0 30px 60px -20px rgba(0,0,0,0.7);
+            transition: var(--transition);
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+            border-color: var(--accent);
+        }
+
+        /* ----- SKILLS ----- */
+        #skills {
+            padding: 80px 0;
+            background: var(--secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 28px 24px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(59,130,246,0.3);
+            box-shadow: var(--shadow);
+        }
+
+        .skill-card .icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .skill-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .skill-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-bar .fill {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, var(--accent), #8b5cf6);
+            width: 0%;
+            transition: width 1s ease;
+        }
+
+        /* ----- PROJECTS ----- */
+        #projects {
+            padding: 80px 0;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 28px 26px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59,130,246,0.25);
+            box-shadow: var(--shadow);
+        }
+
+        .project-card .badge {
+            align-self: flex-start;
+            background: rgba(59,130,246,0.15);
+            color: var(--accent-light);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(59,130,246,0.15);
+        }
+
+        .project-card h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .project-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            flex-grow: 1;
+            margin-bottom: 16px;
+        }
+
+        .project-card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .project-card .tech-stack span {
+            background: rgba(255,255,255,0.05);
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .project-card .links {
+            display: flex;
+            gap: 16px;
+            margin-top: auto;
+        }
+
+        .project-card .links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent-light);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-card .links a:hover {
+            color: #fff;
+        }
+
+        /* ----- ACADEMIC JOURNEY ----- */
+        #academic {
+            padding: 80px 0;
+            background: var(--secondary);
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .journey-card {
+            background: var(--card-bg);
+            padding: 28px 28px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+        }
+
+        .journey-card:hover {
+            border-color: rgba(59,130,246,0.2);
+        }
+
+        .journey-card h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .journey-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .journey-card ul li {
+            padding: 6px 0;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        .journey-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .journey-card ul li i {
+            color: var(--accent);
+            width: 18px;
+            font-size: 0.9rem;
+        }
+
+        .journey-card .highlight-text {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* ----- CONTACT / TEACHERS ----- */
+        #contact {
+            padding: 80px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .contact-info h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .contact-info p i {
+            color: var(--accent);
+            width: 20px;
+        }
+
+        .contact-info .social-links {
+            display: flex;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .contact-info .social-links a {
+            background: rgba(255,255,255,0.05);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .contact-info .social-links a:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .teacher-card {
+            background: var(--card-bg);
+            padding: 24px 26px;
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255,255,255,0.05);
+            margin-bottom: 16px;
+            transition: var(--transition);
+        }
+
+        .teacher-card:hover {
+            border-color: rgba(59,130,246,0.2);
+        }
+
+        .teacher-card h5 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .teacher-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ----- FOOTER ----- */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 32px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--primary);
+        }
+
+        footer span {
+            color: var(--accent);
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-social {
+                justify-content: center;
+            }
+            .hero-image img {
+                width: 240px;
+                height: 240px;
+            }
+            .journey-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                padding: 24px 28px;
+                gap: 18px;
+                border-bottom: 1px solid rgba(255,255,255,0.06);
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .nav-toggle {
+                display: block;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .btn-primary,
+            .btn-outline {
+                width: 100%;
+                justify-content: center;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- ============================================================ -->
-<!-- ================  YOUR DATA CONFIGURATION  ================== -->
-<!-- ============================================================ -->
-<!-- EDIT EVERYTHING BELOW THIS LINE to personalize your site.    -->
-<!-- ============================================================ -->
+    <!-- ========== NAVIGATION ========== -->
+    <nav>
+        <div class="container">
+            <a href="#" class="nav-logo">S<span>MH</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" class="active">Home</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#academic">Journey</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
 
-<script>
-  // =============================================================
-  // 1. PERSONAL INFO — change these to your details
-  // =============================================================
-  const MY_DATA = {
-    name: "Syed Muhammad Sajawal Hussain",                // Your full name
-    title: "Designer & Front-End Builder", // Your tagline
-    badge: "available for collaboration", // Small badge text
-    avatarIcon: "fa-user-circle",       // FontAwesome icon for avatar
-    bio: "Hi, I'm Syed Muhammad Sajawal Hussain — designer & front-end builder. This page shows a selection of projects, skills, and the tools I use daily.",
-    
-    // =============================================================
-    // 2. SOCIAL LINKS — add your profile URLs (keep the icons)
-    // =============================================================
-    social: [
-      { icon: "fa-github", label: "GitHub", url: "https://github.com/yourusername" },
-      { icon: "fa-linkedin", label: "LinkedIn", url: "https://linkedin.com/in/yourusername" },
-      { icon: "fa-x-twitter", label: "Twitter", url: "https://twitter.com/yourusername" },
-      { icon: "fa-envelope", label: "Contact", url: "mailto:you@example.com" }
-    ],
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <span class="section-tag">👋 Welcome to my portfolio</span>
+                <h1>
+                    I'm <span class="highlight">Syed Muhammad<br/>Sajawal Hussain</span>
+                </h1>
+                <p>
+                    BS-IT student (7th Semester) | Android Developer | C++ Programmer |
+                    Computer Lab Manager. Building offline-first mobile solutions and
+                    console-based games.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">
+                        <i class="fas fa-rocket"></i> View Projects
+                    </a>
+                    <a href="#contact" class="btn-outline">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+                <div class="hero-social">
+                    <a href="https://github.com/SyedMuhammadSajawalHussain" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/syed-muhammad-sajawal-hussain-a656283ba" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:syedmuhammadsajawalhussain@gmail.com" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+923280841432" aria-label="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img
+                src="https://github.com/SyedMuhammadSajawalHussain/SyedMuhammadSajawalHussain.github.io/blob/main/SyedMuhammadSajawalHussain.png?raw=true"
+                alt="Syed Muhammad Sajawal Hussain"
+                />
+            </div>
+        </div>
+    </section>
 
-    // =============================================================
-    // 3. PROJECTS — edit or add/remove projects (max 6 shown here)
-    //    Each project needs: icon, title, tag, description, previewLink
-    // =============================================================
-    projects: [
-      {
-        icon: "fa-layer-group",
-        title: "Nova dashboard",
-        tag: "UI / static",
-        description: "Analytics interface with dark mode, data cards, and interactive charts. Built with vanilla HTML/CSS and minimal JS.",
-        previewLink: "#"
-      },
-      {
-        icon: "fa-leaf",
-        title: "Eco landing",
-        tag: "brand · static",
-        description: "One-page site for a sustainable brand. Responsive grid, animated scroll, and a clean typographic system.",
-        previewLink: "#"
-      },
-      {
-        icon: "fa-cube",
-        title: "Portfolio 2025",
-        tag: "personal",
-        description: "Modular portfolio template with project filters, light/dark toggle, and a contact form (static).",
-        previewLink: "#"
-      },
-      {
-        icon: "fa-robot",
-        title: "AI playground",
-        tag: "experiment",
-        description: "Static demo for an AI concept: prompt cards, response simulation, and minimal micro-interactions.",
-        previewLink: "#"
-      },
-      {
-        icon: "fa-pencil-ruler",
-        title: "Design system",
-        tag: "UI kit",
-        description: "Component library with buttons, forms, cards, and typography scales — used across multiple static sites.",
-        previewLink: "#"
-      },
-      {
-        icon: "fa-store-alt",
-        title: "Boutique store",
-        tag: "e‑commerce static",
-        description: "Product catalog with grid, filters (CSS only), and a simple cart overlay. All static, no backend.",
-        previewLink: "#"
-      }
-    ],
+    <!-- ========== SKILLS ========== -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">⚡ Expertise</span>
+                <h2 class="section-title">Skills &amp; Technologies</h2>
+                <p class="section-subtitle">
+                    Technical &amp; professional skills developed through academic projects,
+                    lab management, and self-learning.
+                </p>
+            </div>
+            <div class="skills-grid">
+                <!-- Android -->
+                <div class="skill-card">
+                    <div class="icon"><i class="fab fa-android"></i></div>
+                    <h4>Android Development</h4>
+                    <p>Java, XML, SQLite, PDF generation, Material Design</p>
+                    <div class="skill-bar"><div class="fill" style="width:90%"></div></div>
+                </div>
+                <!-- C++ -->
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-code"></i></div>
+                    <h4>C++ &amp; OOP</h4>
+                    <p>Console apps, DSA, DAA, matrix operations, games</p>
+                    <div class="skill-bar"><div class="fill" style="width:90%"></div></div>
+                </div>
+                <!-- Database -->
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-database"></i></div>
+                    <h4>Database Management</h4>
+                    <p>SQLite, MySQL, normalization, ER diagrams, queries</p>
+                    <div class="skill-bar"><div class="fill" style="width:75%"></div></div>
+                </div>
+                <!-- Lab Management -->
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-desktop"></i></div>
+                    <h4>Computer Lab Management</h4>
+                    <p>System setup, user support, hardware troubleshooting, inventory</p>
+                    <div class="skill-bar"><div class="fill" style="width:75%"></div></div>
+                </div>
+                <!-- DSA / DAA -->
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-brain"></i></div>
+                    <h4>DSA &amp; Algorithms</h4>
+                    <p>Arrays, linked lists, trees, sorting, DP, complexity analysis</p>
+                    <div class="skill-bar"><div class="fill" style="width:75%"></div></div>
+                </div>
+                <!-- Soft Skills -->
+                <div class="skill-card">
+                    <div class="icon"><i class="fas fa-users"></i></div>
+                    <h4>Communication &amp; Leadership</h4>
+                    <p>Team collaboration, technical writing, presentations, support</p>
+                    <div class="skill-bar"><div class="fill" style="width:85%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    // =============================================================
-    // 4. SKILLS / TECHNOLOGIES — add or remove as needed
-    // =============================================================
-    skills: [
-      { icon: "fa-html5", label: "HTML5" },
-      { icon: "fa-css3-alt", label: "CSS3" },
-      { icon: "fa-js", label: "JavaScript (vanilla)" },
-      { icon: "fa-code-branch", label: "Git / GitHub" },
-      { icon: "fa-palette", label: "Figma" },
-      { icon: "fa-mobile-alt", label: "Responsive design" },
-      { icon: "fa-wind", label: "Tailwind / utility" },
-      { icon: "fa-server", label: "Static hosting" }
-    ],
+    <!-- ========== PROJECTS ========== -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🚀 Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">
+                    Android apps, C++ games, and web-based systems built for academic and personal growth.
+                </p>
+            </div>
+            <div class="projects-grid">
 
-    // =============================================================
-    // 5. QUOTE / TESTIMONIAL — add a personal or professional quote
-    // =============================================================
-    quote: {
-      text: "“Static sites are fast, secure, and straightforward. This page is built with that philosophy — zero frameworks, just clean code.”",
-      author: "Syed Muhammad Sajawal Hussain · 2026"
-    },
+                <!-- TaskMate -->
+                <div class="project-card">
+                    <span class="badge">Android</span>
+                    <h4>TaskMate</h4>
+                    <p>Offline task manager with SQLite, notifications, and progress tracking. Built with Java.</p>
+                    <div class="tech-stack">
+                        <span>Java</span><span>SQLite</span><span>XML</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/SyedMuhammadSajawalHussain/TaskMate-Android-Application" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
 
-    // =============================================================
-    // 6. FOOTER — copyright and custom text
-    // =============================================================
-    footer: {
-      copyright: "2026 · static portfolio",
-      extra: "built with ❤️ for my work"
-    }
-  };
+                <!-- My Notes -->
+                <div class="project-card">
+                    <span class="badge">Android</span>
+                    <h4>My Notes</h4>
+                    <p>Personal journal with PDF export, Urdu RTL support, and JSON backup. 100% offline.</p>
+                    <div class="tech-stack">
+                        <span>Java</span><span>SQLite</span><span>PDF</span><span>RTL</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/SyedMuhammadSajawalHussain/MyNotes-Android-Application" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
 
-  // =============================================================
-  // 7. RENDER FUNCTION — this builds the page from your data
-  //    (You don't need to edit anything below unless you want to
-  //     change the HTML structure itself.)
-  // =============================================================
-  document.addEventListener('DOMContentLoaded', function() {
-    const data = MY_DATA;
+                <!-- DIARY -->
+                <div class="project-card">
+                    <span class="badge">Android</span>
+                    <h4>DIARY – Teaching Assistant</h4>
+                    <p>For teachers: manage classes, homework, due dates, and generate professional PDFs.</p>
+                    <div class="tech-stack">
+                        <span>Java</span><span>SQLite</span><span>PDF</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/SyedMuhammadSajawalHussain/Diary-Android-Application" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
 
-    // --- Hero section ---
-    document.querySelector('.hero-text .badge').innerHTML = `<i class="fas fa-code" style="margin-right: 6px;"></i> ${data.badge}`;
-    document.querySelector('.hero-text h1').textContent = 'My work · static portfolio';
-    document.querySelector('.hero-text p').innerHTML = `Hi, I’m <strong>${data.name}</strong> — ${data.title}. ${data.bio.replace(/^Hi, I’m [^—]+— /, '')}`;
-    document.querySelector('.hero-avatar i').className = `fas ${data.avatarIcon}`;
-    document.querySelector('.hero-avatar span').textContent = data.name.split(' ')[0] + ' Sajawal';
+                <!-- Learning Hub -->
+                <div class="project-card">
+                    <span class="badge">Android</span>
+                    <h4>Learning Hub</h4>
+                    <p>Math learning app for kids with guides, quizzes, progress tracking, and grade system.</p>
+                    <div class="tech-stack">
+                        <span>Java</span><span>SQLite</span><span>MVC</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/SyedMuhammadSajawalHussain/LearningHub" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
 
-    // --- Social links ---
-    const socialContainer = document.querySelector('.social-mini');
-    socialContainer.innerHTML = '';
-    data.social.forEach(s => {
-      const a = document.createElement('a');
-      a.href = s.url;
-      a.innerHTML = `<i class="fab ${s.icon}"></i> ${s.label}`;
-      socialContainer.appendChild(a);
-    });
+                <!-- Attendance Tracker -->
+                <div class="project-card">
+                    <span class="badge">Android</span>
+                    <h4>Attendance Tracker</h4>
+                    <p>Mark student attendance (Present/Absent/Leave) and export reports as PDF.</p>
+                    <div class="tech-stack">
+                        <span>Java</span><span>SQLite</span><span>PDF</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/SyedMuhammadSajawalHussain/RollCall-Attendance-App" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
 
-    // --- Projects ---
-    const projectGrid = document.querySelector('.work-grid');
-    projectGrid.innerHTML = '';
-    data.projects.forEach(p => {
-      const card = document.createElement('div');
-      card.className = 'project-card';
-      card.innerHTML = `
-        <div class="project-icon"><i class="fas ${p.icon}"></i></div>
-        <h3>${p.title}</h3>
-        <span class="project-tag">${p.tag}</span>
-        <p>${p.description}</p>
-        <a href="${p.previewLink}" class="btn-outline"><i class="fas fa-eye"></i> preview</a>
-      `;
-      projectGrid.appendChild(card);
-    });
+                <!-- Bus Management -->
+                <div class="project-card">
+                    <span class="badge">Web / DB</span>
+                    <h4>Bus Management System</h4>
+                    <p>Transport management with MySQL, Node.js. Real-time tracking, maintenance module.</p>
+                    <div class="tech-stack">
+                        <span>MySQL</span><span>Node.js</span><span>npm</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/SyedMuhammadSajawalHussain/BusReservation-System" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
 
-    // --- Skills ---
-    const skillContainer = document.querySelector('.skill-tags');
-    skillContainer.innerHTML = '';
-    data.skills.forEach(s => {
-      const span = document.createElement('span');
-      span.innerHTML = `<i class="fab ${s.icon}"></i> ${s.label}`;
-      skillContainer.appendChild(span);
-    });
+                <!-- Football Game -->
+                <div class="project-card">
+                    <span class="badge">C++ Game</span>
+                    <h4>Text-Based Football</h4>
+                    <p>15-round console football game with shoot, pass, tackle, foul commands. OOP in C++.</p>
+                    <div class="tech-stack">
+                        <span>C++</span><span>OOP</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/SyedMuhammadSajawalHussain/Text-Based-Console-Football" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
 
-    // --- Quote ---
-    document.querySelector('.quote-block p').textContent = data.quote.text;
-    document.querySelector('.quote-block small').innerHTML = `${data.quote.author} · <i class="fas fa-code" style="margin-left: 4px;"></i> 2026`;
+                <!-- Cricket Simulator -->
+                <div class="project-card">
+                    <span class="badge">C++ Game</span>
+                    <h4>2D Cricket Simulator</h4>
+                    <p>Console cricket simulation with ASCII animations, random outcomes, two innings.</p>
+                    <div class="tech-stack">
+                        <span>C++</span><span>ASCII Art</span>
+                    </div>
+                    <div class="links">
+                        <a href="https://github.com/SyedMuhammadSajawalHussain/2D-Cricket-Simulator" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
 
-    // --- Footer ---
-    const footerDiv = document.querySelector('.footer div:first-child');
-    footerDiv.innerHTML = `
-      <i class="fas fa-copyright"></i> ${data.footer.copyright}
-      <span style="margin:0 0.5rem; color:#cbd5e1;">|</span>
-      <span style="font-weight:300;">${data.footer.extra.replace('❤️', '<i class="fas fa-heart" style="color:#2563eb; margin:0 3px;"></i>')}</span>
-    `;
-  });
-</script>
+            </div>
+        </div>
+    </section>
 
-<!-- ============================================================ -->
-<!-- ================  HTML STRUCTURE (static)  ================== -->
-<!-- ============================================================ -->
-<!-- The script above fills this structure with YOUR data.        -->
-<!-- ============================================================ -->
+    <!-- ========== ACADEMIC JOURNEY ========== -->
+    <section id="academic">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🎓 Education</span>
+                <h2 class="section-title">Academic Journey</h2>
+                <p class="section-subtitle">
+                    BS-IT (7th Semester) at Government Graduate College for Boys Civil Lines Sheikhupura.
+                </p>
+            </div>
+            <div class="journey-grid">
+                <div class="journey-card">
+                    <h4><i class="fas fa-graduation-cap" style="color:var(--accent);margin-right:10px;"></i> Coursework</h4>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> OOP in C++ &amp; Java</li>
+                        <li><i class="fas fa-check-circle"></i> Data Structures &amp; Algorithms (DSA)</li>
+                        <li><i class="fas fa-check-circle"></i> Design &amp; Analysis of Algorithms (DAA)</li>
+                        <li><i class="fas fa-check-circle"></i> Database Management Systems (DBMS)</li>
+                        <li><i class="fas fa-check-circle"></i> Software Engineering &amp; Requirements</li>
+                        <li><i class="fas fa-check-circle"></i> Computer Networks &amp; OS</li>
+                        <li><i class="fas fa-check-circle"></i> ICT &amp; Information Systems</li>
+                    </ul>
+                </div>
+                <div class="journey-card">
+                    <h4><i class="fas fa-laptop-code" style="color:var(--accent);margin-right:10px;"></i> Practical Experience</h4>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> 6+ Android Apps (Java, SQLite, PDF)</li>
+                        <li><i class="fas fa-check-circle"></i> 2 C++ Console Games (Football, Cricket)</li>
+                        <li><i class="fas fa-check-circle"></i> Bus Management System (MySQL, Node.js)</li>
+                        <li><i class="fas fa-check-circle"></i> Matrix operations &amp; number series (C++)</li>
+                        <li><i class="fas fa-check-circle"></i> Computer Lab Management &amp; Support</li>
+                        <li><i class="fas fa-check-circle"></i> Technical Documentation &amp; SRS</li>
+                        <li><i class="fas fa-check-circle"></i> Team Projects &amp; Peer Collaboration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<div class="container">
+    <!-- ========== CONTACT / TEACHERS ========== -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">📬 Connect</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">
+                    Reach out for collaborations, opportunities, or academic queries.
+                </p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h4><i class="fas fa-user-circle" style="color:var(--accent);margin-right:10px;"></i> Syed Muhammad Sajawal Hussain</h4>
+                    <p><i class="fas fa-envelope"></i> syedmuhammadsajawalhussain@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> 0328-0841432</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Sheikhupura, Pakistan</p>
+                    <p><i class="fas fa-university"></i> Govt. Graduate College for Boys Civil Lines Sheikhupura</p>
+                    <div class="social-links">
+                        <a href="https://github.com/SyedMuhammadSajawalHussain" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/syed-muhammad-sajawal-hussain-a656283ba" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:syedmuhammadsajawalhussain@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+923280841432"><i class="fas fa-phone"></i></a>
+                    </div>
+                    <p style="margin-top:20px;font-size:0.9rem;color:var(--text-muted);">
+                        <i class="fas fa-globe" style="color:var(--accent);"></i> Available for freelance &amp; full-time opportunities.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom:18px;font-size:1.2rem;">
+                        <i class="fas fa-chalkboard-teacher" style="color:var(--accent);margin-right:10px;"></i> For Teachers &amp; Mentors
+                    </h4>
+                    <div class="teacher-card">
+                        <h5><i class="fas fa-user-graduate" style="color:var(--accent);margin-right:8px;"></i> Faculty &amp; Mentors</h5>
+                        <p>I'm open to feedback, research opportunities, and academic collaborations. Please feel free to reach out via email or phone.</p>
+                    </div>
+                    <div class="teacher-card">
+                        <h5><i class="fas fa-handshake" style="color:var(--accent);margin-right:8px;"></i> Professional Network</h5>
+                        <p>Connect with me on LinkedIn or GitHub to stay updated on my latest projects and academic progress.</p>
+                    </div>
+                    <div class="teacher-card">
+                        <h5><i class="fas fa-file-alt" style="color:var(--accent);margin-right:8px;"></i> Portfolio &amp; Documentation</h5>
+                        <p>All my projects are documented with complete README files, SRS, and technical specifications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-text">
-      <span class="badge">Loading...</span>
-      <h1>My work · static portfolio</h1>
-      <p>Loading your data...</p>
-      <div class="social-mini"></div>
-    </div>
-    <div class="hero-avatar">
-      <i class="fas fa-user-circle"></i> 
-      <span>Loading...</span>
-      <span style="color:#64748b; font-weight:400; font-size:0.8rem;">· static</span>
-    </div>
-  </header>
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <p>
+                © 2026 <span>Syed Muhammad Sajawal Hussain</span> &mdash; Built with
+                <i class="fas fa-heart" style="color:var(--accent);"></i> for the global tech community.
+            </p>
+            <p style="font-size:0.8rem;margin-top:6px;color:var(--text-muted);">
+                BS-IT (7th Semester) | Android Developer | C++ Programmer | Lab Manager
+            </p>
+        </div>
+    </footer>
 
-  <!-- WORK -->
-  <section>
-    <div class="section-title">
-      <i class="fas fa-briefcase"></i>
-      <h2>Selected work</h2>
-    </div>
-    <div class="work-grid"></div>
-    <p style="color:#64748b; font-size:0.9rem; margin-top: 0.2rem;">
-      <i class="fas fa-arrow-right" style="color:#2563eb;"></i> 
-      Hover cards for interaction — each project is fully static &amp; responsive.
-    </p>
-  </section>
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // Mobile nav toggle
+        const toggle = document.getElementById('navToggle');
+        const links = document.getElementById('navLinks');
 
-  <!-- SKILLS -->
-  <div class="skills-section">
-    <div class="section-title">
-      <i class="fas fa-tools"></i>
-      <h2>Tools &amp; technologies</h2>
-    </div>
-    <div class="skill-tags"></div>
-  </div>
+        toggle.addEventListener('click', () => {
+            links.classList.toggle('open');
+        });
 
-  <!-- QUOTE -->
-  <div class="quote-block">
-    <p>Loading quote...</p>
-    <small>— loading · 2026</small>
-  </div>
+        // Close nav on link click (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                links.classList.remove('open');
+            });
+        });
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div>Loading footer...</div>
-    <div>
-      <a href="#"><i class="fas fa-arrow-up"></i> back to top</a>
-    </div>
-  </footer>
+        // Active link highlight on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinkItems = document.querySelectorAll('.nav-links a');
 
-</div>
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinkItems.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Skill bar animation on scroll (trigger once)
+        const skillCards = document.querySelectorAll('.skill-card');
+        let animated = false;
+
+        function animateBars() {
+            if (animated) return;
+            const trigger = window.innerHeight * 0.8;
+            skillCards.forEach(card => {
+                const top = card.getBoundingClientRect().top;
+                if (top < trigger) {
+                    const fill = card.querySelector('.fill');
+                    if (fill) {
+                        const width = fill.style.width;
+                        fill.style.width = '0%';
+                        setTimeout(() => {
+                            fill.style.width = width;
+                        }, 200);
+                    }
+                }
+            });
+            animated = true;
+        }
+
+        window.addEventListener('scroll', animateBars);
+        window.addEventListener('load', () => {
+            setTimeout(animateBars, 500);
+        });
+    </script>
 
 </body>
 </html>
