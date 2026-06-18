@@ -478,8 +478,8 @@
 
         .journey-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
         }
 
         .journey-card {
@@ -492,12 +492,25 @@
 
         .journey-card:hover {
             border-color: rgba(59,130,246,0.2);
+            transform: translateY(-4px);
+        }
+
+        .journey-card .edu-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 12px;
         }
 
         .journey-card h4 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 4px;
+        }
+
+        .journey-card .institution {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
         }
 
         .journey-card ul {
@@ -506,12 +519,12 @@
         }
 
         .journey-card ul li {
-            padding: 6px 0;
+            padding: 4px 0;
             color: var(--text-muted);
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             border-bottom: 1px solid rgba(255,255,255,0.04);
         }
 
@@ -521,8 +534,8 @@
 
         .journey-card ul li i {
             color: var(--accent);
-            width: 18px;
-            font-size: 0.9rem;
+            width: 16px;
+            font-size: 0.8rem;
         }
 
         .journey-card .highlight-text {
@@ -650,7 +663,7 @@
                 height: 240px;
             }
             .journey-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
             }
             .contact-grid {
                 grid-template-columns: 1fr;
@@ -683,6 +696,9 @@
                 grid-template-columns: 1fr;
             }
             .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            .journey-grid {
                 grid-template-columns: 1fr;
             }
             .hero-content h1 {
@@ -961,34 +977,55 @@
                 <span class="section-tag">🎓 Education</span>
                 <h2 class="section-title">Academic Journey</h2>
                 <p class="section-subtitle">
-                    BS-IT (7th Semester) at Government Graduate College for Boys Civil Lines Sheikhupura.
+                    A complete record of my educational path from Matric to BS-IT.
                 </p>
             </div>
             <div class="journey-grid">
+
+                <!-- Matric -->
                 <div class="journey-card">
-                    <h4><i class="fas fa-graduation-cap" style="color:var(--accent);margin-right:10px;"></i> Coursework</h4>
+                    <div class="edu-icon"><i class="fas fa-school"></i></div>
+                    <h4>Matriculation</h4>
+                    <p class="institution"><i class="fas fa-building" style="color:var(--accent);margin-right:6px;"></i> Govt. Lasani Muslim Model High School</p>
+                    <p class="institution" style="font-size:0.85rem;color:var(--text-muted);margin-bottom:10px;">
+                        <i class="fas fa-map-marker-alt" style="color:var(--accent);margin-right:6px;"></i> Farooqabad
+                    </p>
                     <ul>
-                        <li><i class="fas fa-check-circle"></i> OOP in C++ &amp; Java</li>
-                        <li><i class="fas fa-check-circle"></i> Data Structures &amp; Algorithms (DSA)</li>
-                        <li><i class="fas fa-check-circle"></i> Design &amp; Analysis of Algorithms (DAA)</li>
-                        <li><i class="fas fa-check-circle"></i> Database Management Systems (DBMS)</li>
-                        <li><i class="fas fa-check-circle"></i> Software Engineering &amp; Requirements</li>
-                        <li><i class="fas fa-check-circle"></i> Computer Networks &amp; OS</li>
-                        <li><i class="fas fa-check-circle"></i> ICT &amp; Information Systems</li>
+                        <li><i class="fas fa-check-circle"></i> Computer Science</li>
+                        <li><i class="fas fa-check-circle"></i> Science Group</li>
                     </ul>
                 </div>
+
+                <!-- Intermediate -->
                 <div class="journey-card">
-                    <h4><i class="fas fa-laptop-code" style="color:var(--accent);margin-right:10px;"></i> Practical Experience</h4>
+                    <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>Intermediate (ICS)</h4>
+                    <p class="institution"><i class="fas fa-building" style="color:var(--accent);margin-right:6px;"></i> Govt. Graduate College Civil Lines</p>
+                    <p class="institution" style="font-size:0.85rem;color:var(--text-muted);margin-bottom:10px;">
+                        <i class="fas fa-map-marker-alt" style="color:var(--accent);margin-right:6px;"></i> Sheikhupura
+                    </p>
                     <ul>
-                        <li><i class="fas fa-check-circle"></i> 6+ Android Apps (Java, SQLite, PDF)</li>
-                        <li><i class="fas fa-check-circle"></i> 2 C++ Console Games (Football, Cricket)</li>
-                        <li><i class="fas fa-check-circle"></i> Bus Management System (MySQL, Node.js)</li>
-                        <li><i class="fas fa-check-circle"></i> Matrix operations &amp; number series (C++)</li>
-                        <li><i class="fas fa-check-circle"></i> Computer Lab Management &amp; Support</li>
-                        <li><i class="fas fa-check-circle"></i> Technical Documentation &amp; SRS</li>
-                        <li><i class="fas fa-check-circle"></i> Team Projects &amp; Peer Collaboration</li>
+                        <li><i class="fas fa-check-circle"></i> Physics</li>
+                        <li><i class="fas fa-check-circle"></i> Mathematics</li>
+                        <li><i class="fas fa-check-circle"></i> Computer Science</li>
                     </ul>
                 </div>
+
+                <!-- BS-IT -->
+                <div class="journey-card">
+                    <div class="edu-icon"><i class="fas fa-university"></i></div>
+                    <h4>BS-IT (Continuing)</h4>
+                    <p class="institution"><i class="fas fa-building" style="color:var(--accent);margin-right:6px;"></i> Govt. Graduate College Civil Lines</p>
+                    <p class="institution" style="font-size:0.85rem;color:var(--text-muted);margin-bottom:10px;">
+                        <i class="fas fa-map-marker-alt" style="color:var(--accent);margin-right:6px;"></i> Sheikhupura
+                    </p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> <span class="highlight-text">7th Semester</span> (Continuing)</li>
+                        <li><i class="fas fa-check-circle"></i> Department of Information Technology</li>
+                        <li><i class="fas fa-check-circle"></i> Evening Program</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1011,4 +1048,114 @@
                     <p><i class="fas fa-map-marker-alt"></i> Sheikhupura, Pakistan</p>
                     <p><i class="fas fa-university"></i> Govt. Graduate College for Boys Civil Lines Sheikhupura</p>
                     <div class="social-links">
-                        <a href="https://github.com/SyedMuhammadSajawalHussain
+                        <a href="https://github.com/SyedMuhammadSajawalHussain" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/syed-muhammad-sajawal-hussain-a656283ba" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:syedmuhammadsajawalhussain@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+923280841432"><i class="fas fa-phone"></i></a>
+                    </div>
+                    <p style="margin-top:20px;font-size:0.9rem;color:var(--text-muted);">
+                        <i class="fas fa-globe" style="color:var(--accent);"></i> Available for freelance &amp; full-time opportunities.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom:18px;font-size:1.2rem;">
+                        <i class="fas fa-chalkboard-teacher" style="color:var(--accent);margin-right:10px;"></i> For Teachers &amp; Mentors
+                    </h4>
+                    <div class="teacher-card">
+                        <h5><i class="fas fa-user-graduate" style="color:var(--accent);margin-right:8px;"></i> Faculty &amp; Mentors</h5>
+                        <p>I'm open to feedback, research opportunities, and academic collaborations. Please feel free to reach out via email or phone.</p>
+                    </div>
+                    <div class="teacher-card">
+                        <h5><i class="fas fa-handshake" style="color:var(--accent);margin-right:8px;"></i> Professional Network</h5>
+                        <p>Connect with me on LinkedIn or GitHub to stay updated on my latest projects and academic progress.</p>
+                    </div>
+                    <div class="teacher-card">
+                        <h5><i class="fas fa-file-alt" style="color:var(--accent);margin-right:8px;"></i> Portfolio &amp; Documentation</h5>
+                        <p>All my projects are documented with complete README files, SRS, and technical specifications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="container">
+            <p>
+                © 2026 <span>S.M. Sajawal Hussain</span> &mdash; Built with
+                <i class="fas fa-heart" style="color:var(--accent);"></i> for the global tech community.
+            </p>
+            <p style="font-size:0.8rem;margin-top:6px;color:var(--text-muted);">
+                BS-IT (7th Semester) | Android Developer | C++ Programmer | Lab Manager
+            </p>
+        </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // Mobile nav toggle
+        const toggle = document.getElementById('navToggle');
+        const links = document.getElementById('navLinks');
+
+        toggle.addEventListener('click', () => {
+            links.classList.toggle('open');
+        });
+
+        // Close nav on link click (mobile)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                links.classList.remove('open');
+            });
+        });
+
+        // Active link highlight on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinkItems = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinkItems.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Skill bar animation on scroll (trigger once)
+        const skillCards = document.querySelectorAll('.skill-card');
+        let animated = false;
+
+        function animateBars() {
+            if (animated) return;
+            const trigger = window.innerHeight * 0.8;
+            skillCards.forEach(card => {
+                const top = card.getBoundingClientRect().top;
+                if (top < trigger) {
+                    const fill = card.querySelector('.fill');
+                    if (fill) {
+                        const width = fill.style.width;
+                        fill.style.width = '0%';
+                        setTimeout(() => {
+                            fill.style.width = width;
+                        }, 200);
+                    }
+                }
+            });
+            animated = true;
+        }
+
+        window.addEventListener('scroll', animateBars);
+        window.addEventListener('load', () => {
+            setTimeout(animateBars, 500);
+        });
+    </script>
+
+</body>
+</html>
